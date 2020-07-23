@@ -1,0 +1,66 @@
+{
+	"manifest_version": 2,
+
+	"name": "BrickTinker",
+	"version": "1.0.0",
+	"description": "Adds useful features for sellers on BrickLink.com",
+ 
+	"permissions": [
+		"storage"
+	],
+		
+	"content_scripts" : [
+	  {
+		"js": ["scripts/library.js", "scripts/catalog_entry.js", "scripts/price_guide.js"],
+		"matches": ["https://www.bricklink.com/v2/catalog/*", "https://store.bricklink.com/v2/catalog/*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/orders_received.js"],
+		"matches": ["https://www.bricklink.com/orderReceived.asp*"]
+	  },
+	  {
+		"js": ["scripts/inventory.js"],
+		"matches": ["https://www.bricklink.com/inventory.asp*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/inventory_add.js"],
+		"matches": ["https://www.bricklink.com/inventory_add.asp*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/color_picker.js"],
+		"matches": ["https://www.bricklink.com/catalogColors.asp*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/price_guide.js"],
+		"matches": ["https://www.bricklink.com/catalogPG.asp*&v=P*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/inventory_detail_shared.js", "scripts/search_page.js"],
+		"matches": ["https://www.bricklink.com/v2/search.page*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/inventory_detail_shared.js", "scripts/inventory_detail.js"],
+		"matches": ["https://www.bricklink.com/inventory_detail.asp*"]
+	  }
+	],
+
+	"icons": {
+		"16": "images/bt_logo_16.png",
+		"24": "images/bt_logo_24.png",
+		"32": "images/bt_logo_32.png",
+		"48": "images/bt_logo_48.png",
+		"64": "images/bt_logo_64.png"
+	},
+
+	"browser_action": {
+		"default_icon": {
+			"16": "images/bt_logo_16.png",
+			"24": "images/bt_logo_24.png",
+			"32": "images/bt_logo_32.png",
+			"48": "images/bt_logo_48.png",
+			"64": "images/bt_logo_64.png"
+		},
+		"default_title": "BrickTinker",
+		"default_popup": "popup.html"
+	}
+}

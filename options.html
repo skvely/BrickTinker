@@ -1,0 +1,221 @@
+<html>
+<head>
+<style>
+.tdtitle
+{
+	background: #193945;
+	font-size: 17px;
+}
+
+.tdregular
+{
+	white-space: nowrap;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr
+{
+    border-bottom: 1px solid #316e7d;
+}
+
+.tablediv {
+    background-color: #141e24;
+    border: 0.125rem solid #316e7d;
+    box-sizing: content-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 0.75rem;
+    min-width: 1.5rem;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    transition: background-color 250ms;
+    -moz-user-select: none;
+    user-select: none;
+	font-size: 10px;
+}
+
+.button {
+    background-color: #141e24;
+    border: 0.125rem solid #316e7d;
+    box-sizing: content-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 0.75rem;
+    min-width: 1.5rem;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    transition: background-color 250ms;
+    -moz-user-select: none;
+    user-select: none;
+}
+.button:hover {
+    background-color: #193945;
+    transition: background-color 125ms;
+}
+.button:active {
+    background-color: #316e7d;
+}
+.button__wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #193945; 
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #316e7d; 
+}
+
+a:link {
+  color: #316e7d;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #193945;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #316e7d;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
+
+
+</head>
+<body style="font-family:Helvetica; color:#FFFFFF; background:#000000">
+<img src="/images/brick_tinker_200.png"/><br><br>
+
+<table>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Catalog Entry</b></td>
+	</tr>
+	<tr>
+		<td class="tdregular">Search Inventory</td>
+		<td>
+			<p>Adds a link to catalog entry page to search for that item in your inventory.</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">Search Variants</td>
+		<td>
+			<p>Adds a link to catalog entry page to search for variants of that item (e.g., pieces with stickers).</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">USA Sellers</td>
+		<td>
+			<p>Defaults the "Items for Sale" list on catalog entry to only USA sellers when the page loads. You can still switch it afterwards.</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">Show Median Price</td>
+		<td>
+			<p>Calculates and shows the median price in the Price Guide section of catalog entry and the stand-alone Price Guide, but only if sorted by Price.</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Orders Received</b></td>
+	</tr>
+	<tr>
+		<td class="tdregular">USPS Tracking Link</td>
+		<td>
+			<p>Adds a link to USPS website for each order that has a tracking number entered. Must have Tracking Number column showing using "Customize Display".</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">Hide Inputs</td>
+		<td>
+			<p>Allows you to hide inputs on Orders Received page that are not hideable in "Customize Display".</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Search</b></td>
+	</tr>
+	<tr>
+		<td class="tdregular">Inventory Tab</td>
+		<td>
+			<p>Adds a tab to "All Items" search results that includes a search of your inventory.</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Inventory & Detail</b></td>
+	</tr>
+	<tr>
+		<td class="tdregular">Inventory Page Width</td>
+		<td>
+			<p>Expands the width of the default inventory page so that inventory category titles to do not line wrap.</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">"Add to Inventory" Link</td>
+		<td>
+			<p>Adds a link to each item in inventory detail listing allowing you to add another item of that type to your inventory.</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Inventory Add</b></td>
+	</tr>
+	<tr>
+		<td class="tdregular">Streamline Options</td>
+		<td>
+			<p>Removes less used options and explanatory text in the inventory add page and rearranges remaining options to give a more streamlined and compact page that requires less scrolling and/or tabbing. Includes an option to revert back to the standard page if full options are needed.</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">Auto Show Price Guide</td>
+		<td>
+			<p>Automatically shows/refreshes the price guide when the page loads or the color changes.</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">Advanced Color Picker</td>
+		<td>
+			<p>Adds a button next to the color drop-down menu that opens a window showing all known colors as images. Click one of the images to select a color.</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdregular">Show Correct Color Image</td>
+		<td>
+			<p>Automatically refreshes the picture on the inventory add page when the selected color changes.</p>
+		</td>
+	</tr>
+</table>
+</body>
+</html> 

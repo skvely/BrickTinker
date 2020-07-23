@@ -1,0 +1,340 @@
+<html>
+<head>
+<meta name="viewport" content="width=300, initial-scale=1">
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #555555;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #316e7d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #316e7d;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.tdtitle
+{
+	background: #193945;
+	font-size: 17px;
+}
+
+.tablediv {
+    background-color: #141e24;
+    border: 0.125rem solid #316e7d;
+    box-sizing: content-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 0.75rem;
+    min-width: 1.5rem;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    transition: background-color 250ms;
+    -moz-user-select: none;
+    user-select: none;
+	font-size: 10px;
+}
+
+.button {
+    background-color: #141e24;
+    border: 0.125rem solid #316e7d;
+    box-sizing: content-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 0.75rem;
+    min-width: 1.5rem;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    transition: background-color 250ms;
+    -moz-user-select: none;
+    user-select: none;
+}
+.button:hover {
+    background-color: #193945;
+    transition: background-color 125ms;
+}
+.button:active {
+    background-color: #316e7d;
+}
+.button__wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #193945; 
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #316e7d; 
+}
+</style>
+
+
+</head>
+<body style="font-family:Helvetica; color:#FFFFFF; background:#000000">
+<img src="/images/brick_tinker_200.png"/><br><br>
+
+<div class="tablediv" style="overflow:auto; height:450">
+<table width="300" style="font-size:15px">
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Catalog Entry</b></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Search Inventory</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_search_inventory">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Search Variants</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_search_variants">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;USA Sellers</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_usa_sellers">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Show Median Price</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_show_median_price">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Orders Received</b></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;USPS Tracking Link</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_usps_tracking">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Hide Inputs</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hide Shipping</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_hide_shipping">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hide Insurance</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_hide_insurance">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hide Additional Charges</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_hide_additional">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hide Taxes</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_hide_taxes">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Search</b></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Inventory Tab</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_add_inventory_search">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Inventory & Detail</b></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Inventory Page Width</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_inventory_width">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;"Add to Inventory" Link</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_add_to_inventory">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="tdtitle"><b>Inventory Add</b></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Streamline Options</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_streamline_add">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Auto Show Price Guide</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_auto_show_price_guide">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Advanced Color Picker</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_advanced_color_picker">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;Show Correct Color Image</td>
+		<td>
+			<label class="switch">
+			  <input type="checkbox" id="sw_show_correct_color_image">
+			  <span class="slider round"></span>
+			</label>
+		</td>
+	</tr>
+</table>
+</div>
+<table style="margin-left:auto; margin-right:auto">
+	<tr>
+		<td>
+			<button class="button">
+				<span id="about_button" class="button__wrapper">&nbsp;About&nbsp;</span>
+			</button>
+		</td>
+		<td>
+			<button class="button">
+				<span id="options_button" class="button__wrapper">&nbsp;Feature Descriptions&nbsp;</span>
+			</button>
+		</td>
+		<td>
+			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HDUDDWS6PCW7U&source=url" target="_window">
+				<button class="button">
+					<span id="donate_button" class="button__wrapper">&nbsp;Donate&nbsp;</span>
+				</button>
+			</a>
+		</td>
+	</td>
+</table>
+
+<script <script src="scripts/popup_script.js"></script>
+
+</body>
+</html> 
