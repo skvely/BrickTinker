@@ -21,6 +21,8 @@ function getParentOfType(node, type)
 
 function getChildOfType(node, type)
 {
+	if (node == null) return null;
+	
 	for (var i=0; i<node.childNodes.length; i++)
 		if (isType(node.childNodes[i], type))
 			return node.childNodes[i];
@@ -52,6 +54,8 @@ function getNthChildOfType(node, type, index)
 
 function getChildOfTypeRec(node, type)
 {
+	if (node == null) return null;
+	
 	for (var i=0; i<node.childNodes.length; i++)
 	{
 		if (isType(node.childNodes[i], type))

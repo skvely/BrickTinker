@@ -25,8 +25,9 @@ function executeAddToInventory(doc)
 		var tr = getParentOfType(a, "tr");
 		var newTD = doc.createElement("td");
 		var newA = doc.createElement("a");
-		newA.href = "http://www.bricklink.com/inventory_add.asp?a=P&itemID=" + itemNo;
+		newA.href = "https://www.bricklink.com/inventory_add.asp?a=P&itemID=" + itemNo;
 		newA.innerHTML = "Add Another to My Inventory";
+		newA.target = a.target;
 		newFont.appendChild(newA);
 		newTD.appendChild(newFont);
 		tr.appendChild(newTD);

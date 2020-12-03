@@ -52,7 +52,7 @@ function addInventorySearch()
 	iframe.id = "invIframe";
 	iframe.seamless = true;
 	var keyword = document.getElementById("_idInKeyword").value;
-	iframe.src = "https://www.bricklink.com/inventory_detail.asp?q=" + keyword;
+	iframe.src = "https://www.bricklink.com/v2/inventory_detail.page?q=" + keyword;
 	iframe.style.position = 'relative';
 	iframe.style.width = '100%';
 	iframe.scrolling = 'no';
@@ -68,9 +68,49 @@ function fixInventoryBody()
 	var iframe = document.getElementById("invIframe");
 	doc = iframe.contentDocument;
 
-	if (doc.body.childNodes.length > 0 && doc.body.childNodes[0].id == "id-main-legacy-table") return;
+	if (doc.body.childNodes.length > 0 && doc.body.childNodes[0].class == "bl-3 bl-main-contents") return;
 	
-	var invTable = doc.getElementById("id-main-legacy-table");
+	fixInventoryBodyWithTimeout(0);
+}
+
+function fixInventoryBodyWithTimeout(count)
+{
+	//update tab's "number found"
+	var div1 = doc.getElementById("idStoreInventoryDetailContainer");
+	var div2 = getChildOfType(div1, "div");
+	var div3 = getChildOfType(div2, "div");
+	var div4 = getChildOfType(div3, "div");
+	var td = getChildOfTypeRec(div4, "td");
+	var b = getChildOfType(td, "b");
+	if (b == null)
+	{
+		//wait for page to finish loading
+		if (count < 3)
+		{
+			setTimeout(fixInventoryBodyWithTimeout(count + 1), 500);
+			return;
+		}
+		
+		//nothing found, do not show tab
+		var tabs = document.getElementsByClassName("blWideTabMenu blWideTabInactive");
+		for (var i=0; i<tabs.length; i++)
+		{
+			var tab = tabs[i];
+			if (tab.getAttribute("data-tab-id") == "V")
+			{
+				tab.style.display = 'none';
+				tab.nextSibling.style.display = 'none';
+			}
+		}
+		return;
+	}
+	var numFound = b.innerHTML;
+	document.getElementById("_idInventoryNum").innerHTML = "(" + numFound + ")";
+
+	//set tab contents
+	var mainDivs = doc.getElementsByClassName("bl-3 bl-main-contents");
+	if (mainDivs.Length == 0) return;
+	var invTable = mainDivs[0];
 	var invBody = doc.body;
 	invBody.innerHTML = "";
 	invBody.appendChild(invTable);		
@@ -85,27 +125,6 @@ function fixInventoryBody()
 		a.target = '_PARENT';
 	}
 
-	//update tab's "number found"
-	var tas = doc.getElementsByClassName("ta");
-	if (tas.length == 0)
-	{
-		//nothing found, do not show tab
-		var tabs = document.getElementsByClassName("blWideTabMenu blWideTabInactive");
-		for (var i=0; i<tabs.length; i++)
-		{
-			var tab = tabs[i];
-			if (tab.getAttribute("data-tab-id") == "V")
-			{
-				tab.style.display = 'none';
-				tab.nextSibling.style.display = 'none';
-			}
-		}
-		return;
-	}
-	var numFound = getChildOfType(tas[0], "b").innerHTML;
-	document.getElementById("_idInventoryNum").innerHTML = "(" + numFound + ")";
-
-
 	//fix price guide links
 	chrome.storage.sync.get({
 		showMedianPrice: true,
@@ -116,7 +135,6 @@ function fixInventoryBody()
 		if (items.addToInventory)
 			executeAddToInventory(doc);
 	});
-
 
 	//adjust iframe height to fit content
 	iframe.style.height = doc.documentElement.scrollHeight + 'px';

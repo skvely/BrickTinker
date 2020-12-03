@@ -12,7 +12,7 @@ function executeSearchInventory()
 	var searchLink = addLink.cloneNode();
 	searchLink.id = '_idSearchInventoryLink';
 	searchLink.innerHTML = "Search My Inventory";
-	searchLink.href = "https://www.bricklink.com/inventory_detail.asp?q=" + itemNo;
+	searchLink.href = "https://www.bricklink.com/v2/inventory_detail.page?q=" + itemNo;
 	container.insertBefore(searchLink, br);
 }
 
@@ -24,7 +24,7 @@ function getItemNo(addLink)
 	return itemNo;
 }
 
-function executeSearchVariants()
+function executeSearchVariants(isCatalog)
 {
 	var addLink = document.getElementById('_idAddToMyInvLink');
 	if (addLink == null) return;
@@ -46,7 +46,14 @@ function executeSearchVariants()
 	var searchLink = addLink.cloneNode();
 	searchLink.id = '_idSearchVariantsLink';
 	searchLink.innerHTML = "Search Variants";
-	searchLink.href = "https://www.bricklink.com/v2/search.page?q=" + itemNo + "*#T=P";
+	if (isCatalog)
+	{
+		searchLink.href = "https://www.bricklink.com/catalogList.asp?q=" + itemNo + "*";
+	}
+	else
+	{
+		searchLink.href = "https://www.bricklink.com/v2/search.page?q=" + itemNo + "*#T=P";
+	}
 	container.appendChild(searchLink);
 }
 
@@ -69,12 +76,13 @@ function executeUSASellers()
 chrome.storage.sync.get({
     searchInventory: true,
 	searchVariants: true,
-	usaSellers: false
+	usaSellers: false,
+	catalogSearch: false
 }, function(items) {
 	if (items.searchInventory)
 		executeSearchInventory();
 	if (items.searchVariants)
-		executeSearchVariants();
+		executeSearchVariants(items.catalogSearch);
 	if (items.usaSellers)
 		executeUSASellers();
 });
