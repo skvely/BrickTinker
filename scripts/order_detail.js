@@ -1,6 +1,5 @@
 function executeHideRefundSection()
 {
-	alert("starting");
 	var bolds = document.getElementsByTagName('b');
 	for (var i = 0, l = bolds.length; i < l; i++)
 	{
