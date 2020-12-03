@@ -127,9 +127,18 @@ function addMedianPrice()
 function addRow(tbody, lastTR, title, currency, price)
 {
 		var newTR = lastTR.cloneNode(true);
-		newTR.childNodes[0].innerHTML = title;
-		newTR.childNodes[1].childNodes[0].innerHTML = currency + parseFloat(price).toFixed(2);
+		setColorFontNodeChild(newTR.childNodes[0], title);
+		setColorFontNodeChild(newTR.childNodes[1].childNodes[0], currency + parseFloat(price).toFixed(2));
 		tbody.insertBefore(newTR, lastTR);	
+}
+
+function setColorFontNodeChild(node, txt)
+{	
+		var font = document.createElement("font");
+		font.setAttribute("color", "Maroon");
+		font.innerHTML = txt;
+		node.innerHTML = "";
+		node.appendChild(font);
 }
 
 function median(values)
