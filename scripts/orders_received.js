@@ -26,7 +26,7 @@ function executeUSPSTrackingLink()
 		link.href = "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + trackingNo;
 		var img = document.createElement("img");
 		img.setAttribute("width", "18px");
-		img.src = "http://static.bricklink.com/renovate/img/usps.png"
+		img.src = "https://static.bricklink.com/renovate/img/usps.png"
 		link.appendChild(img);
 		
 		//add to column and row

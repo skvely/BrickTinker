@@ -24,6 +24,7 @@ function save_options() {
 	showMedianPrice: document.getElementById('sw_show_median_price').checked,
     uspsTracking: document.getElementById('sw_usps_tracking').checked,
 	addInventorySearch: document.getElementById('sw_add_inventory_search').checked,	
+	catalogSearch: document.getElementById('sw_catalog_search').checked,	
 	inventoryWidth: document.getElementById('sw_inventory_width').checked,
 	addToInventory: document.getElementById('sw_add_to_inventory').checked,
 	hideInputShipping: document.getElementById('sw_hide_shipping').checked,
@@ -46,6 +47,7 @@ function restore_options() {
 	showMedianPrice: true,
 	uspsTracking: false,
 	addInventorySearch: true,
+	catalogSearch: false,
 	inventoryWidth: true,
 	addToInventory: true,
 	hideInputShipping: false,
@@ -64,6 +66,7 @@ function restore_options() {
 	document.getElementById('sw_show_median_price').checked = items.showMedianPrice;
     document.getElementById('sw_usps_tracking').checked = items.uspsTracking;
 	document.getElementById('sw_add_inventory_search').checked = items.addInventorySearch;
+	document.getElementById('sw_catalog_search').checked = items.catalogSearch;
 	document.getElementById('sw_inventory_width').checked = items.inventoryWidth;
 	document.getElementById('sw_add_to_inventory').checked = items.addToInventory;
 	document.getElementById('sw_hide_shipping').checked = items.hideInputShipping;
@@ -85,6 +88,7 @@ document.getElementById('sw_usa_sellers').onchange = save_options;
 document.getElementById('sw_show_median_price').onchange = save_options;
 document.getElementById('sw_usps_tracking').onchange = save_options;
 document.getElementById('sw_add_inventory_search').onchange = save_options;
+document.getElementById('sw_catalog_search').onchange = save_options;
 document.getElementById('sw_inventory_width').onchange = save_options;
 document.getElementById('sw_add_to_inventory').onchange = save_options;
 document.getElementById('sw_hide_shipping').onchange = save_options;

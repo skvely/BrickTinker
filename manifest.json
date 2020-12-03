@@ -11,6 +11,10 @@
 		
 	"content_scripts" : [
 	  {
+		"js": ["scripts/library.js", "scripts/search_bar.js"],
+		"matches": ["https://www.bricklink.com/*"]
+	  },
+	  {
 		"js": ["scripts/library.js", "scripts/catalog_entry.js", "scripts/price_guide.js"],
 		"matches": ["https://www.bricklink.com/v2/catalog/*", "https://store.bricklink.com/v2/catalog/*"]
 	  },
