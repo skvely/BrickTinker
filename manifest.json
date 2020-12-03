@@ -49,6 +49,14 @@
 	  {
 		"js": ["scripts/library.js", "scripts/inventory_detail_shared.js", "scripts/inventory_detail.js"],
 		"matches": ["https://www.bricklink.com/v2/inventory_detail.page*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/message_list.js"],
+		"matches": ["https://www.bricklink.com/messageList.asp*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/message_thread.js"],
+		"matches": ["https://www.bricklink.com/messageThread.asp*"]
 	  }
 	],
 
