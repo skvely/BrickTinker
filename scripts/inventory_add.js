@@ -62,6 +62,7 @@ function executeAutoShowPriceGuide()
 	updatePriceGuide();
 	
 	var color = document.getElementById('p_color');
+	color.setAttribute("price-guide", "true");
 	color.onchange = onColorChange;
 }
 //-------------------------------
@@ -76,6 +77,7 @@ function executeShowCorrectColorImage()
 	updateImage();
 	
 	var color = document.getElementById('p_color');
+	color.setAttribute("correct-color", "true");
 	color.onchange = onColorChange;
 }
 
@@ -94,8 +96,15 @@ function updateImage()
 
 function onColorChange()
 {
-	updatePriceGuide();
-	updateImage();
+	var color = document.getElementById('p_color');
+	if (color.hasAttribute("price-guide"))
+	{
+		updatePriceGuide();
+	}
+	if (color.hasAttribute("correct-color"))
+	{
+		updateImage();
+	}
 }
 
 function isPageType(type)
