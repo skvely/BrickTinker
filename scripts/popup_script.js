@@ -30,6 +30,7 @@ function save_options() {
 	hideInputInsurance: document.getElementById('sw_hide_insurance').checked,
 	hideInputAdditional: document.getElementById('sw_hide_additional').checked,
 	hideInputTaxes: document.getElementById('sw_hide_taxes').checked,
+	hideRefundSection: document.getElementById('sw_hide_refund_section').checked,
  	streamlineAdd: document.getElementById('sw_streamline_add').checked,
 	autoShowPriceGuide: document.getElementById('sw_auto_show_price_guide').checked,
 	advancedColorPicker: document.getElementById('sw_advanced_color_picker').checked,
@@ -51,6 +52,7 @@ function restore_options() {
 	hideInputInsurance: false,
 	hideInputAdditional: false,
 	hideInputTaxes: false,
+	hideRefundSection: false,
 	streamlineAdd: false,
 	autoShowPriceGuide: true,
 	advancedColorPicker: true,
@@ -68,6 +70,7 @@ function restore_options() {
 	document.getElementById('sw_hide_insurance').checked = items.hideInputInsurance;
 	document.getElementById('sw_hide_additional').checked = items.hideInputAdditional;
 	document.getElementById('sw_hide_taxes').checked = items.hideInputTaxes;
+	document.getElementById('sw_hide_refund_section').checked = items.hideRefundSection;
 	document.getElementById('sw_streamline_add').checked = items.streamlineAdd;
 	document.getElementById('sw_auto_show_price_guide').checked = items.autoShowPriceGuide;
 	document.getElementById('sw_advanced_color_picker').checked = items.advancedColorPicker;
@@ -88,6 +91,7 @@ document.getElementById('sw_hide_shipping').onchange = save_options;
 document.getElementById('sw_hide_insurance').onchange = save_options;
 document.getElementById('sw_hide_additional').onchange = save_options;
 document.getElementById('sw_hide_taxes').onchange = save_options;
+document.getElementById('sw_hide_refund_section').onchange = save_options;
 document.getElementById('sw_streamline_add').onchange = save_options;
 document.getElementById('sw_auto_show_price_guide').onchange = save_options;
 document.getElementById('sw_advanced_color_picker').onchange = save_options;

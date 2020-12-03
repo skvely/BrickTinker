@@ -1,5 +1,7 @@
 function hideElement(e)
 {
+	if (e.tagName == null) return;
+	
 	e.style.display = 'none';
 }
 
@@ -67,6 +69,28 @@ function getChildCountOfType(node, type)
 		if (isType(node.childNodes[i], type))
 			count++;
 	return count;
+}
+
+function getPreviousSiblingOfType(node, type)
+{
+	if (node == null) return null;
+	var ps = node.previousSibling;
+	while (ps != null && !isType(ps, type))
+	{
+		ps = ps.previousSibling;
+	}
+	return ps;
+}
+
+function getNextSiblingOfType(node, type)
+{
+	if (node == null) return null;
+	var ns = node.nextSibling;
+	while (ns != null && !isType(ns, type))
+	{
+		ns = ns.nextSibling;
+	}
+	return ns;
 }
 
 function getTypeIndexOf(node)

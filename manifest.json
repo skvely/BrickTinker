@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 
 	"name": "BrickTinker",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Adds useful features for sellers on BrickLink.com",
  
 	"permissions": [
@@ -17,6 +17,10 @@
 	  {
 		"js": ["scripts/library.js", "scripts/orders_received.js"],
 		"matches": ["https://www.bricklink.com/orderReceived.asp*"]
+	  },
+	  {
+		"js": ["scripts/library.js", "scripts/order_detail.js"],
+		"matches": ["https://www.bricklink.com/orderDetail.asp*"]
 	  },
 	  {
 		"js": ["scripts/inventory.js"],
