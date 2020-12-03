@@ -48,7 +48,7 @@
 	  },
 	  {
 		"js": ["scripts/library.js", "scripts/inventory_detail_shared.js", "scripts/inventory_detail.js"],
-		"matches": ["https://www.bricklink.com/inventory_detail.asp*"]
+		"matches": ["https://www.bricklink.com/v2/inventory_detail.page*"]
 	  }
 	],
 
