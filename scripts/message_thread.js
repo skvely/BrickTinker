@@ -34,11 +34,91 @@ function executeForumJumpTo()
 	}
 }
 
+function executeCollapseQuotations()
+{
+	var collapseStyle = document.createElement('style');
+	collapseStyle.innerHTML = `
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.quotecontent {
+  display: none;
+  overflow: hidden;
+}
+`;
+
+	document.head.appendChild(collapseStyle);
+	
+	
+	var tables = document.getElementsByTagName("table");
+	for (var i=0; i<tables.length; i++)
+	{
+		var table = tables[i];
+		var styles = window.getComputedStyle(table);
+		var style = styles.getPropertyValue('border-left');
+		if (style.startsWith("1px dashed"))	
+		{
+			table.className = "quotecontent";
+			table.style.display = "none";
+			
+			var quoteButton = document.createElement('button');
+			quoteButton.className = "collapsible";
+			quoteButton.innerHTML = "Click to show/hide quotation";
+			var parentNode = table.parentNode;
+			var insertBeforeNode = getPreviousSiblingOfType('br');
+			if (insertBeforeNode != null)
+				parentNode.insertBefore(quoteButton, insertBeforeNode);
+			else
+				parentNode.insertBefore(quoteButton, table);
+
+			quoteButton.addEventListener("click", function() 
+			{
+				if (this.className == "active")
+					this.className = "collapsible";
+				else
+					this.className = "active";
+				var content = this.nextElementSibling;
+				if (!isType(content, 'table'))
+					content = getNextSiblingOfType('table');
+				if (content.style.display === "block")
+					content.style.display = "none";
+				else
+					content.style.display = "block";
+			});
+		}
+	}	
+}
+
 
 chrome.storage.sync.get({
-	forumFullThread: false
+	forumFullThread: false,
+	forumCollapseQuotations: false,
 }, function(items) {
 	if (items.forumFullThread)
 		executeForumJumpTo();	
+	if (items.forumCollapseQuotations)
+		executeCollapseQuotations();
 });
 

@@ -37,6 +37,7 @@ function save_options() {
 	advancedColorPicker: document.getElementById('sw_advanced_color_picker').checked,
 	showCorrectColorImage: document.getElementById('sw_show_correct_color_image').checked,
 	forumFullThread: document.getElementById('sw_forum_full_thread').checked,
+	forumCollapseQuotations: document.getElementById('sw_forum_collapse_quotations').checked,
 	forumFilter: document.getElementById('sw_forum_filter').checked
   });
 }
@@ -62,6 +63,7 @@ function restore_options() {
 	advancedColorPicker: true,
 	showCorrectColorImage: true,
 	forumFullThread: false,
+	forumCollapseQuotations: false,
 	forumFilter: false
   }, function(items) {
     document.getElementById('sw_search_inventory').checked = items.searchInventory;
@@ -83,6 +85,7 @@ function restore_options() {
 	document.getElementById('sw_advanced_color_picker').checked = items.advancedColorPicker;
 	document.getElementById('sw_show_correct_color_image').checked = items.showCorrectColorImage;
 	document.getElementById('sw_forum_full_thread').checked = items.forumFullThread;
+	document.getElementById('sw_forum_collapse_quotations').checked = items.forumCollapseQuotations;
 	document.getElementById('sw_forum_filter').checked = items.forumFilter;
   });
 }
@@ -106,6 +109,7 @@ document.getElementById('sw_streamline_add').onchange = save_options;
 document.getElementById('sw_auto_show_price_guide').onchange = save_options;
 document.getElementById('sw_advanced_color_picker').onchange = save_options;
 document.getElementById('sw_forum_full_thread').onchange = save_options;
+document.getElementById('sw_forum_collapse_quotations').onchange = save_options;
 document.getElementById('sw_forum_filter').onchange = save_options;
 
 document.getElementById('about_button').onclick = openAboutPage;
