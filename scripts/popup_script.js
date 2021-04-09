@@ -27,10 +27,6 @@ function save_options() {
 	catalogSearch: document.getElementById('sw_catalog_search').checked,	
 	inventoryWidth: document.getElementById('sw_inventory_width').checked,
 	addToInventory: document.getElementById('sw_add_to_inventory').checked,
-	hideInputShipping: document.getElementById('sw_hide_shipping').checked,
-	hideInputInsurance: document.getElementById('sw_hide_insurance').checked,
-	hideInputAdditional: document.getElementById('sw_hide_additional').checked,
-	hideInputTaxes: document.getElementById('sw_hide_taxes').checked,
 	hideRefundSection: document.getElementById('sw_hide_refund_section').checked,
  	streamlineAdd: document.getElementById('sw_streamline_add').checked,
 	autoShowPriceGuide: document.getElementById('sw_auto_show_price_guide').checked,
@@ -53,10 +49,6 @@ function restore_options() {
 	catalogSearch: false,
 	inventoryWidth: true,
 	addToInventory: true,
-	hideInputShipping: false,
-	hideInputInsurance: false,
-	hideInputAdditional: false,
-	hideInputTaxes: false,
 	hideRefundSection: false,
 	streamlineAdd: false,
 	autoShowPriceGuide: true,
@@ -75,10 +67,6 @@ function restore_options() {
 	document.getElementById('sw_catalog_search').checked = items.catalogSearch;
 	document.getElementById('sw_inventory_width').checked = items.inventoryWidth;
 	document.getElementById('sw_add_to_inventory').checked = items.addToInventory;
-	document.getElementById('sw_hide_shipping').checked = items.hideInputShipping;
-	document.getElementById('sw_hide_insurance').checked = items.hideInputInsurance;
-	document.getElementById('sw_hide_additional').checked = items.hideInputAdditional;
-	document.getElementById('sw_hide_taxes').checked = items.hideInputTaxes;
 	document.getElementById('sw_hide_refund_section').checked = items.hideRefundSection;
 	document.getElementById('sw_streamline_add').checked = items.streamlineAdd;
 	document.getElementById('sw_auto_show_price_guide').checked = items.autoShowPriceGuide;
@@ -100,10 +88,6 @@ document.getElementById('sw_add_inventory_search').onchange = save_options;
 document.getElementById('sw_catalog_search').onchange = save_options;
 document.getElementById('sw_inventory_width').onchange = save_options;
 document.getElementById('sw_add_to_inventory').onchange = save_options;
-document.getElementById('sw_hide_shipping').onchange = save_options;
-document.getElementById('sw_hide_insurance').onchange = save_options;
-document.getElementById('sw_hide_additional').onchange = save_options;
-document.getElementById('sw_hide_taxes').onchange = save_options;
 document.getElementById('sw_hide_refund_section').onchange = save_options;
 document.getElementById('sw_streamline_add').onchange = save_options;
 document.getElementById('sw_auto_show_price_guide').onchange = save_options;
