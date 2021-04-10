@@ -27,7 +27,6 @@ function save_options() {
 	catalogSearch: document.getElementById('sw_catalog_search').checked,	
 	inventoryWidth: document.getElementById('sw_inventory_width').checked,
 	addToInventory: document.getElementById('sw_add_to_inventory').checked,
-	hideRefundSection: document.getElementById('sw_hide_refund_section').checked,
  	streamlineAdd: document.getElementById('sw_streamline_add').checked,
 	autoShowPriceGuide: document.getElementById('sw_auto_show_price_guide').checked,
 	advancedColorPicker: document.getElementById('sw_advanced_color_picker').checked,
@@ -49,7 +48,6 @@ function restore_options() {
 	catalogSearch: false,
 	inventoryWidth: true,
 	addToInventory: true,
-	hideRefundSection: false,
 	streamlineAdd: false,
 	autoShowPriceGuide: true,
 	advancedColorPicker: true,
@@ -67,7 +65,6 @@ function restore_options() {
 	document.getElementById('sw_catalog_search').checked = items.catalogSearch;
 	document.getElementById('sw_inventory_width').checked = items.inventoryWidth;
 	document.getElementById('sw_add_to_inventory').checked = items.addToInventory;
-	document.getElementById('sw_hide_refund_section').checked = items.hideRefundSection;
 	document.getElementById('sw_streamline_add').checked = items.streamlineAdd;
 	document.getElementById('sw_auto_show_price_guide').checked = items.autoShowPriceGuide;
 	document.getElementById('sw_advanced_color_picker').checked = items.advancedColorPicker;
@@ -88,7 +85,6 @@ document.getElementById('sw_add_inventory_search').onchange = save_options;
 document.getElementById('sw_catalog_search').onchange = save_options;
 document.getElementById('sw_inventory_width').onchange = save_options;
 document.getElementById('sw_add_to_inventory').onchange = save_options;
-document.getElementById('sw_hide_refund_section').onchange = save_options;
 document.getElementById('sw_streamline_add').onchange = save_options;
 document.getElementById('sw_auto_show_price_guide').onchange = save_options;
 document.getElementById('sw_advanced_color_picker').onchange = save_options;
