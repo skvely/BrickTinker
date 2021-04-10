@@ -5,6 +5,16 @@ function hideElement(e)
 	e.style.display = 'none';
 }
 
+function isVisible(e)
+{
+    return !isHidden(e);
+}
+
+function isHidden(e)
+{
+    return (e.offsetParent === null);
+}
+
 function isType(node, type)
 {
 	return (node.tagName != null && node.tagName.toLowerCase() == type.toLowerCase());
