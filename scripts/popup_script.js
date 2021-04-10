@@ -18,7 +18,6 @@ function openOptionsPage() {
 
 function save_options() {
   chrome.storage.sync.set({
-    searchInventory: document.getElementById('sw_search_inventory').checked,
     searchVariants: document.getElementById('sw_search_variants').checked,
 	usaSellers: document.getElementById('sw_usa_sellers').checked,
 	showMedianPrice: document.getElementById('sw_show_median_price').checked,
@@ -39,7 +38,6 @@ function save_options() {
 
 function restore_options() {
   chrome.storage.sync.get({
-    searchInventory: true,
     searchVariants: true,
 	usaSellers: false,
 	showMedianPrice: true,
@@ -56,7 +54,6 @@ function restore_options() {
 	forumCollapseQuotations: false,
 	forumFilter: false
   }, function(items) {
-    document.getElementById('sw_search_inventory').checked = items.searchInventory;
     document.getElementById('sw_search_variants').checked = items.searchVariants;
 	document.getElementById('sw_usa_sellers').checked = items.usaSellers;
 	document.getElementById('sw_show_median_price').checked = items.showMedianPrice;
@@ -76,7 +73,6 @@ function restore_options() {
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('sw_search_inventory').onchange = save_options;
 document.getElementById('sw_search_variants').onchange = save_options;
 document.getElementById('sw_usa_sellers').onchange = save_options;
 document.getElementById('sw_show_median_price').onchange = save_options;

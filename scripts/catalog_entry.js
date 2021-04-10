@@ -1,21 +1,3 @@
-function executeSearchInventory()
-{
-	var addLink = document.getElementById('_idAddToMyInvLink');
-	if (addLink == null) return;
-
-	var itemNo = getItemNo(addLink);
-	var container = addLink.parentNode;
-
-	var br = document.createElement("br");
-	container.insertBefore(br, addLink);
-
-	var searchLink = addLink.cloneNode();
-	searchLink.id = '_idSearchInventoryLink';
-	searchLink.innerHTML = "Search My Inventory";
-	searchLink.href = "https://www.bricklink.com/v2/inventory_detail.page?q=" + itemNo;
-	container.insertBefore(searchLink, br);
-}
-
 function getItemNo(addLink)
 {	
 	var addHref = addLink.href;
@@ -74,13 +56,10 @@ function executeUSASellers()
 }
 
 chrome.storage.sync.get({
-    searchInventory: true,
 	searchVariants: true,
 	usaSellers: false,
 	catalogSearch: false
 }, function(items) {
-	if (items.searchInventory)
-		executeSearchInventory();
 	if (items.searchVariants)
 		executeSearchVariants(items.catalogSearch);
 	if (items.usaSellers)
