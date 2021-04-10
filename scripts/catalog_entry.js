@@ -39,20 +39,66 @@ function executeSearchVariants(isCatalog)
 	container.appendChild(searchLink);
 }
 
-function executeUSASellers()
+function toggleUSASellers()
 {
 	var radios = document.getElementsByName("inSellerLocation");
+
+    var currentVal = "";
 	for (var i=0; i<radios.length; i++)
 	{
-		if (radios[i].value == "C")
+		if (radios[i].checked)
+			 currentVal = radios[i].value;
+	}
+
+	var desiredVal = "C";
+	if (currentVal == "C") desiredVal = "A";
+
+	for (var i=0; i<radios.length; i++)
+	{
+		if (radios[i].value == desiredVal)
 			radios[i].checked = true;
 	}
 	
-	var dropdown = document.getElementById("_idSelSellerCountry");
-	dropdown.value = "US";
+	if (desiredVal == "C")
+	{
+		var dropdown = document.getElementById("_idSelSellerCountry");
+		dropdown.value = "US";
+	}
 	
 	var button = document.getElementById("_idbtnSearch2");
 	button.click();
+}
+
+function executeUSASellers()
+{
+	toggleUSASellers();
+	
+	var moreOptionsLink = document.getElementById("_idMoreLink");
+	if (moreOptionsLink != null)
+	{
+		var td = getParentOfType(moreOptionsLink, "td");
+		var tr = getParentOfType(td, "tr");
+		var prevTR = getPreviousSiblingOfType(tr, "tr");
+		var prevTable = getChildOfTypeRec(prevTR, "table");
+		
+		var newTable = prevTable.cloneNode();
+		var newTR = document.createElement("tr");
+		var newTD = document.createElement("td");
+		newTD.align = "left";
+		newTD.style.padding = "10px";
+		var newA = document.createElement("a");
+		newA.href = "javascript:void(0)";
+		newA.innerHTML = "Toggle USA Sellers Filter";
+		newA.onclick = toggleUSASellers;
+		newTD.appendChild(newA);
+		newTR.appendChild(newTD);
+		newTR.appendChild(td);
+		newTable.appendChild(newTR);
+
+		var newTD2 = document.createElement("td");
+		newTD2.appendChild(newTable);
+		tr.appendChild(newTD2);
+	}
 }
 
 chrome.storage.sync.get({
