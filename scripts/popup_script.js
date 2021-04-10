@@ -84,6 +84,7 @@ document.getElementById('sw_add_to_inventory').onchange = save_options;
 document.getElementById('sw_streamline_add').onchange = save_options;
 document.getElementById('sw_auto_show_price_guide').onchange = save_options;
 document.getElementById('sw_advanced_color_picker').onchange = save_options;
+document.getElementById('sw_show_correct_color_image').onchange = save_options;
 document.getElementById('sw_forum_full_thread').onchange = save_options;
 document.getElementById('sw_forum_collapse_quotations').onchange = save_options;
 document.getElementById('sw_forum_filter').onchange = save_options;
