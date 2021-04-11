@@ -83,6 +83,12 @@ function executeEnlargeThumbnails()
 			img.removeAttribute("width");
 			img.removeAttribute("height");
 		}
+		
+		if (img.src.includes("noImage.gif"))
+		{
+			img.height = "120";
+			img.width = "160";
+		}
 	}
 	
 	
@@ -105,7 +111,7 @@ function executeEnlargeThumbnails()
 				for (var k = 0; k < imgs.length; k++)
 				{
 					var img = imgs[k];
-					if (img.src.includes(searchTerm))
+					if (img.src.includes(searchTerm) || img.src.includes("noImage.gif"))
 					{
 						var tempTD = getParentOfType(img, "td");
 						var td = getParentOfType(tempTD, "td");
