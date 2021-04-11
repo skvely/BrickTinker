@@ -125,6 +125,14 @@ function getTypeIndexOf(node)
 	return -1;
 }
 
+function clearChildNodes(node)
+{
+    while (node.firstChild)
+	{
+        node.removeChild(node.firstChild);
+    }
+}
+
 //Finds the TD node in the same position as input_td, but in a different TR of the same table, defined by tr_index
 function getTDFromTRIndex(input_td, tr_index)
 {
