@@ -49,6 +49,48 @@ function executeEscToCloseImagePreview()
 
 function executeEnlargeThumbnails()
 {
+	enlargeThumbnails();
+	
+	//Update when search page is done loading
+	var tabTable = document.getElementById("_idTabMenu");
+	if (tabTable != null)
+	{	
+		var mutationObserver = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation){
+				enlargeThumbnails();
+			});
+		});
+		mutationObserver.observe(tabTable,
+		{
+			attributes: true,
+			attributeFilter: ["style"],
+			childList: false,
+			subtree: false,
+		});
+	}
+
+	//Update when store list changes
+	var divs = document.getElementsByClassName("store-view-panel");
+	if (divs != null && divs.length > 0)
+	{	
+		var div = divs[0];
+		var mutationObserver = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation){
+				enlargeThumbnails();
+			});
+		});
+		mutationObserver.observe(div,
+		{
+			attributes: true,
+			attributeFilter: ["style"],
+			childList: false,
+			subtree: false,
+		});
+	}
+}
+
+function enlargeThumbnails()
+{
 	if (window.location.href.includes(`catalogitem.page`))
 		return;
 	
