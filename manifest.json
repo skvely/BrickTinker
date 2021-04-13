@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 
 	"name": "BrickTinker",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Adds useful features for sellers on BrickLink.com",
  
 	"permissions": [
