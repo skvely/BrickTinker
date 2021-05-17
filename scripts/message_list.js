@@ -27,13 +27,18 @@ function executeForumFullThread()
 			if (threadLink == null)
 			{
 				var table = getParentOfType(a, "table");
-				var td = getParentOfType(table, "td");
-				if (td != null)
+				if (table != null)
 				{
-					var prevTD = getPreviousSiblingOfType(td, "td");
-					if (prevTD != null)
+					var td = getParentOfType(table, "td");
+					if (td != null)
 					{
-						threadLink = getChildOfType(prevTD, "a");
+						alert("In tdnull if");
+						var prevTD = getPreviousSiblingOfType(td, "td");
+						alert("prevTD: " + prevTD);
+						if (prevTD != null)
+						{
+							threadLink = getChildOfType(prevTD, "a");
+						}
 					}
 				}
 			}
